@@ -120,6 +120,7 @@
   <meta name="description" content={description} />
   <meta name="keywords" content={keywords} />
   <meta name="author" content={profile.fullName} />
+  <meta name="google-site-verification" content="jLD3X8gyVA0xlswNx3hoUeyPF_W-c6DsknbzK2PcBrM" />
   <link rel="canonical" href={SITE_URL} />
 
   <meta property="og:type" content="website" />
