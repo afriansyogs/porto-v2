@@ -1,0 +1,2 @@
+export const ghostButtonClasses =
+  'inline-flex items-center justify-center gap-2 rounded-full border border-border font-medium whitespace-nowrap text-foreground transition-[scale,translate,background-color,border-color,opacity] duration-[var(--dur-micro)] ease-[var(--ease-signature)] hover:-translate-y-px hover:bg-accent active:translate-y-0 active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-foreground/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none';
