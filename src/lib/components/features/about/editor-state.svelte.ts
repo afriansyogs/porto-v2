@@ -11,7 +11,7 @@ export const editorFileOrder = ['about', 'education'] as const satisfies readonl
 
 class EditorState {
   activeFile = $state<EditorFileId>('about');
-  tabs = $state<EditorFileId[]>(['about']);
+  tabs = $state<EditorFileId[]>(['about', 'education']);
   cursorLine = $state(1);
 
   open(id: EditorFileId): void {

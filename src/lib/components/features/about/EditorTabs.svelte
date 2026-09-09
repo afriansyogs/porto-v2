@@ -32,7 +32,7 @@
 </script>
 
 <div
-  class="flex h-9 items-stretch overflow-x-auto border-b border-border"
+  class="flex h-9 [scrollbar-width:none] items-stretch overflow-x-auto border-b border-border [&::-webkit-scrollbar]:hidden"
   role="tablist"
   aria-label="Open files"
 >
@@ -71,11 +71,12 @@
       {#if editor.tabs.length > 1}
         <button
           type="button"
-          onclick={() => {
+          onclick={(event) => {
+            event.stopPropagation();
             editor.closeTab(id);
           }}
           aria-label={`Close ${file.name}`}
-          class="flex items-center px-2 transition-colors duration-[var(--dur-micro)] hover:bg-foreground/10 focus-visible:ring-2 focus-visible:ring-foreground/50 focus-visible:outline-none focus-visible:ring-inset"
+          class="hidden items-center px-2 transition-colors duration-[var(--dur-micro)] hover:bg-foreground/10 focus-visible:ring-2 focus-visible:ring-foreground/50 focus-visible:outline-none focus-visible:ring-inset md:flex"
         >
           <X aria-hidden="true" strokeWidth={2} class="size-3" />
         </button>

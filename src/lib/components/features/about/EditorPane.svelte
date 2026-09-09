@@ -4,9 +4,11 @@
   import type { DocBlock } from '$lib/types';
   import { prefersReducedMotion } from '$lib/utils/motion';
   import DitherPortrait from '$lib/components/common/effects/DitherPortrait.svelte';
+  import { cn } from '$lib/utils';
   import { editor, editorFiles } from './editor-state.svelte';
 
   const GUTTER_LINE = 24;
+  const EXTRA_LINES = 5;
 
   const active = $derived(editorFiles[editor.activeFile]);
   const panelLabelId = $derived(`editor-tab-${editor.activeFile}`);
@@ -16,21 +18,62 @@
       case 'heading':
         return 2;
       case 'paragraph':
-        return Math.ceil(block.text.length / 64) + 1;
+        return Math.ceil(block.text.length / 50) + 1;
       case 'list':
         return block.items.length + 1;
       case 'code':
-        return block.content.split('\n').length + 2;
+        return block.content.split('\n').length + 1;
       case 'stats':
-        return 4;
+        return 6;
       case 'portrait':
-        return 14;
+        return 12;
     }
   }
 
-  const lineCount = $derived(
-    active.blocks.reduce((total, block) => total + estimateLines(block), 0)
-  );
+  let panelElement = $state<HTMLElement | null>(null);
+  const measuredHeights = $state<Record<string, number>>({});
+
+  const measureContent: Attachment<HTMLElement> = (element) => {
+    const fileId = editor.activeFile;
+    const update = (): void => {
+      measuredHeights[fileId] = Math.ceil(element.getBoundingClientRect().height);
+    };
+    update();
+    const observer = new ResizeObserver(update);
+    observer.observe(element);
+    return () => {
+      observer.disconnect();
+    };
+  };
+
+  $effect(() => {
+    if (editor.activeFile && panelElement) {
+      panelElement.scrollTop = 0;
+    }
+  });
+
+  const currentMeasuredHeight = $derived(measuredHeights[editor.activeFile] ?? 0);
+
+  const estimatedLines = $derived.by(() => {
+    return active.blocks.reduce((total, block) => total + estimateLines(block), 0);
+  });
+
+  const contentLines = $derived.by(() => {
+    if (currentMeasuredHeight > 0) {
+      return Math.ceil(currentMeasuredHeight / GUTTER_LINE);
+    }
+    return estimatedLines;
+  });
+
+  const lineCount = $derived(contentLines + EXTRA_LINES);
+
+  const spacerHeight = $derived.by(() => {
+    if (currentMeasuredHeight > 0) {
+      return Math.max(EXTRA_LINES * GUTTER_LINE, lineCount * GUTTER_LINE - currentMeasuredHeight);
+    }
+    return EXTRA_LINES * GUTTER_LINE;
+  });
+
   const gutterLines = $derived(Array.from({ length: lineCount }, (_, index) => index + 1));
 
   let statsVisible = $state(false);
@@ -64,29 +107,38 @@
 
 <div
   id="editor-panel"
+  bind:this={panelElement}
   role="tabpanel"
   aria-labelledby={panelLabelId}
   tabindex="0"
-  class="flex max-h-[30rem] min-h-0 flex-1 overflow-y-auto focus-visible:ring-2 focus-visible:ring-foreground/50 focus-visible:outline-none focus-visible:ring-inset md:max-h-[34rem]"
+  class={cn(
+    'flex min-h-0 flex-1 items-start focus-visible:ring-2 focus-visible:ring-foreground/50 focus-visible:outline-none focus-visible:ring-inset',
+    editor.activeFile === 'education'
+      ? 'overflow-y-hidden'
+      : 'max-h-[30rem] overflow-y-auto md:max-h-[34rem]'
+  )}
   onscroll={(event) => {
     onPaneScroll(event.currentTarget.scrollTop);
   }}
 >
   <div
     aria-hidden="true"
-    class="w-11 shrink-0 pt-6 pr-3 text-right font-mono text-xs leading-6 text-muted-foreground select-none"
+    class="w-11 shrink-0 pt-6 pr-3 pb-6 text-right font-mono text-xs leading-6 text-muted-foreground select-none"
   >
     {#each gutterLines as line (line)}
       <div>{line}</div>
     {/each}
   </div>
 
-  <div class="min-w-0 flex-1 pt-6 pr-4 pl-2 md:pr-5">
+  <div class="min-w-0 flex-1 pt-6 pr-4 pb-6 pl-2 md:pr-5">
     {#key editor.activeFile}
       <div class="pane-swap">
-        {#each active.blocks as block, index (index)}
-          {@render renderBlock(block, index)}
-        {/each}
+        <div {@attach measureContent}>
+          {#each active.blocks as block, index (index)}
+            {@render renderBlock(block, index)}
+          {/each}
+        </div>
+        <div style="height: {spacerHeight}px;" aria-hidden="true"></div>
       </div>
     {/key}
   </div>
