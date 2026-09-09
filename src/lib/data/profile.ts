@@ -5,7 +5,7 @@ export const profile = {
   fullName: 'Afriansyah Yogatama',
   alternateNames: ['Afrians Yoga', 'Ayt', 'afriansyogs'],
   initials: 'Ayt',
-  role: 'Software Engineer',
+  role: 'Fullstack Developer',
   focus: 'AI/ML Enthusiast',
   heroBio:
     'I build things for the web from end to end, and lately, I’ve been exploring AI/ML to see what I can build with it.',

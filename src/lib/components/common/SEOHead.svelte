@@ -9,7 +9,7 @@
   import { SITE_URL } from '$lib/utils/site';
 
   const title = `${profile.fullName} (${profile.name}) | ${profile.role} & ${profile.focus}`;
-  const description = `${profile.fullName} (${profile.name}) is a Software Engineer from Indonesia building fast, reliable web platforms and AI/ML applications (RAG, LLM). Explore portfolio, experience, and contact info.`;
+  const description = `${profile.fullName} (${profile.name}) is a Fullstack Developer from Indonesia building fast, reliable web platforms and AI/ML applications (RAG, LLM). Explore portfolio, experience, and contact info.`;
   const ogImage = `${SITE_URL}/img/og-image.png`;
   const imageAlt = `${profile.fullName} (${profile.name}) — ${profile.role} and ${profile.focus}`;
   const keywords = [
@@ -18,7 +18,7 @@
     ...profile.alternateNames,
     profile.role,
     profile.focus,
-    'Software Engineer Indonesia',
+    'Fullstack Developer Indonesia',
     'Full Stack Developer',
     'AI ML Engineer',
     'SvelteKit Developer',
@@ -57,7 +57,7 @@
         additionalName: profile.name,
         alternateName: [...profile.alternateNames],
         jobTitle: profile.role,
-        description: `${profile.fullName} (also known as ${profile.name}) is a Software Engineer based in Indonesia specializing in full-stack web platforms and AI/ML integrations.`,
+        description: `${profile.fullName} (also known as ${profile.name}) is a Fullstack Developer based in Indonesia specializing in full-stack web platforms and AI/ML integrations.`,
         url: SITE_URL,
         email: `mailto:${profile.email}`,
         image: ogImage,
@@ -82,7 +82,7 @@
           ...skills.map((skill) => skill.name),
           ...aiMlFocus,
           'Full-Stack Development',
-          'Software Engineering',
+          'Fullstack Development',
           'Artificial Intelligence',
           'Machine Learning'
         ]

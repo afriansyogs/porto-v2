@@ -5,7 +5,7 @@ const aboutBlocks = [
   { type: 'portrait' },
   {
     type: 'paragraph',
-    text: 'I am Afriansyah Yogatama (commonly known as Afrians Yoga), a software engineer who enjoys the whole journey of a product: modeling the data, shaping the API, and polishing the interface until it feels right. My roots are in full-stack web development with PHP, TypeScript, and Python.'
+    text: 'I am Afriansyah Yogatama (commonly known as Afrians Yoga), a fullstack developer who enjoys the whole journey of a product: modeling the data, shaping the API, and polishing the interface until it feels right. My roots are in full-stack web development with PHP, TypeScript, and Python.'
   },
   {
     type: 'paragraph',
@@ -25,7 +25,7 @@ const aboutBlocks = [
     type: 'code',
     lang: 'ts',
     content:
-      "const me = {\n\trole: 'Software Engineer',\n\tExploreing: 'AI/ML',\n\topenTo: building & learning\n};"
+      "const me = {\n\trole: 'Fullstack Developer',\n\tExploreing: 'AI/ML',\n\topenTo: building & learning\n};"
   },
   { type: 'heading', level: 2, text: 'By the Numbers' },
   {

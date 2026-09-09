@@ -9,7 +9,7 @@
 
   let {
     src = '/about.webp',
-    alt = 'Afrians Yoga — Software Engineer & AI/ML Enthusiast',
+    alt = 'Afrians Yoga — Fullstack Developer & AI/ML Enthusiast',
     class: className
   }: Props = $props();
 </script>

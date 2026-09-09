@@ -4,12 +4,12 @@ export const faq = [
   {
     question: 'Who is Afriansyah Yogatama?',
     answer:
-      'Afriansyah Yogatama (also known as Afrians Yoga or Ayt) is a software engineer based in Indonesia. He specializes in full-stack web platforms using SvelteKit, Next.js, and TypeScript, while actively building and researching AI/ML features such as RAG and LLM applications.'
+      'Afriansyah Yogatama (also known as Afrians Yoga or Ayt) is a Fullstack Developer based in Indonesia. He specializes in full-stack web platforms using SvelteKit, Next.js, and TypeScript, while actively building and researching AI/ML features such as RAG and LLM applications.'
   },
   {
     question: 'Are you available for new projects or full-time roles?',
     answer:
-      'Yes. I am currently open to full-time software engineering roles and select freelance projects, especially work involving secure API platforms, IoT integrations, or modern JavaScript stacks. I can start within a reasonable notice period, and I am happy to discuss contract, hybrid, or fully remote arrangements.'
+      'Yes. I am currently open to full-time fullstack developer roles and select freelance projects, especially work involving secure API platforms, IoT integrations, or modern JavaScript stacks. I can start within a reasonable notice period, and I am happy to discuss contract, hybrid, or fully remote arrangements.'
   },
   {
     question: 'Do you work remotely or on-site?',
