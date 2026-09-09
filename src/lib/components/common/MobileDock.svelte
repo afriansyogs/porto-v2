@@ -16,8 +16,11 @@
   import { cn } from '$lib/utils';
   import ThemeToggle from './ThemeToggle.svelte';
   import ShineButton from './ShineButton.svelte';
+  import { browser } from '$app/environment';
 
-  gsap.registerPlugin(ScrollTrigger);
+  if (browser) {
+    gsap.registerPlugin(ScrollTrigger);
+  }
 
   type SectionId = (typeof sectionIds)[number];
   type Icon = typeof House;

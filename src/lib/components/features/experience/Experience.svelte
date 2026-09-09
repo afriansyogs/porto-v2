@@ -6,8 +6,11 @@
   import TimelineItem from './TimelineItem.svelte';
   import { experience } from '$lib/data/experience';
   import { MOTION, prefersReducedMotion } from '$lib/utils/motion';
+  import { browser } from '$app/environment';
 
-  gsap.registerPlugin(ScrollTrigger);
+  if (browser) {
+    gsap.registerPlugin(ScrollTrigger);
+  }
 
   const timelineMotion: Attachment<HTMLElement> = (container) => {
     const progress = container.querySelector<HTMLElement>('[data-progress]');

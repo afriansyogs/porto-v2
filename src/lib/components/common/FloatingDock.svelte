@@ -9,8 +9,11 @@
   import { MOTION, prefersReducedMotion } from '$lib/utils/motion';
   import ThemeToggle from './ThemeToggle.svelte';
   import ShineButton from './ShineButton.svelte';
+  import { browser } from '$app/environment';
 
-  gsap.registerPlugin(ScrollTrigger);
+  if (browser) {
+    gsap.registerPlugin(ScrollTrigger);
+  }
 
   const spy = createScrollSpy(sectionIds);
 

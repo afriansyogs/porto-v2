@@ -11,8 +11,11 @@
   import { cn } from '$lib/utils';
   import { ghostButtonClasses } from '$lib/utils/button-styles';
   import DotPattern from '$lib/components/common/effects/DotPattern.svelte';
+  import { browser } from '$app/environment';
 
-  gsap.registerPlugin(ScrollTrigger);
+  if (browser) {
+    gsap.registerPlugin(ScrollTrigger);
+  }
 
   const github = profile.socials.find((social) => social.icon === 'github');
 

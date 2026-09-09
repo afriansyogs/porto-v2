@@ -9,8 +9,11 @@
   import EditorTabs from './EditorTabs.svelte';
   import EditorPane from './EditorPane.svelte';
   import StatusBar from './StatusBar.svelte';
+  import { browser } from '$app/environment';
 
-  gsap.registerPlugin(ScrollTrigger);
+  if (browser) {
+    gsap.registerPlugin(ScrollTrigger);
+  }
 
   const MAX_TILT = 1.5;
 
