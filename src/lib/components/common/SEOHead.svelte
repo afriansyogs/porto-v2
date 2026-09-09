@@ -38,7 +38,7 @@
         '@type': 'WebSite',
         '@id': `${SITE_URL}/#website`,
         url: SITE_URL,
-        name: `${profile.fullName} (${profile.name})`,
+        name: `${profile.fullName}`,
         alternateName: [...profile.alternateNames],
         inLanguage: 'en-US'
       },
