@@ -3,7 +3,7 @@ import type { ExperienceItem } from '$lib/types';
 export const experience = [
   {
     role: 'Frontend Developer & QA',
-    company: 'PT INOVASI SOLUSI DIGITAL',
+    company: 'PT INOVARA SOLUSI DIGITAL',
     location: 'Indonesia · Remote',
     start: 'Aug 2026',
     current: true,
@@ -13,7 +13,7 @@ export const experience = [
       'Implemented a test-driven development approach, writing unit and integration tests to ensure code quality and reliability',
       'Created and executed test cases, performed functional and regression testing, and documented bugs to ensure application quality'
     ],
-    tags: ['TypeScript', 'Svelte', 'Tailwind CSS', 'QA']
+    tags: ['TypeScript', 'Svelte', 'SvelteKit', 'Tailwind CSS', 'QA Testing']
   },
   {
     role: 'Full-Stack Developer',

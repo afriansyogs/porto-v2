@@ -17,90 +17,6 @@
 
   const spy = createScrollSpy(sectionIds);
 
-  const magnify: Attachment<HTMLDivElement> = (pill) => {
-    if (
-      prefersReducedMotion() ||
-      !window.matchMedia('(hover: hover) and (pointer: fine)').matches
-    ) {
-      return;
-    }
-    const items = Array.from(pill.querySelectorAll<HTMLElement>('[data-dock-scale]'));
-    if (items.length === 0) {
-      return;
-    }
-    let pillLeft = 0;
-    let centers: number[] = items.map(() => 0);
-    const scales: number[] = items.map(() => 1);
-
-    const measure = (): void => {
-      const pillRect = pill.getBoundingClientRect();
-      pillLeft = pillRect.left;
-      centers = items.map((el) => {
-        const rect = el.getBoundingClientRect();
-        return rect.left - pillLeft + rect.width / 2;
-      });
-    };
-
-    measure();
-    const resizeObserver = new ResizeObserver(measure);
-    resizeObserver.observe(pill);
-    window.addEventListener('resize', measure);
-
-    let mouseX: number | null = null;
-    let frame = 0;
-
-    const tick = (): void => {
-      frame = 0;
-      let settled = true;
-      for (let i = 0; i < items.length; i += 1) {
-        let target = 1;
-        if (mouseX !== null) {
-          const distance = Math.abs(mouseX - centers[i]);
-          if (distance <= 160) {
-            target = 1 + 0.25 * Math.cos((distance / 160) * (Math.PI / 2));
-          }
-        }
-        const next = scales[i] + (target - scales[i]) * 0.25;
-        scales[i] = Math.abs(target - next) < 0.002 ? target : next;
-        if (scales[i] !== target) {
-          settled = false;
-        }
-        items[i].style.setProperty('--dock-scale', scales[i].toFixed(3));
-      }
-      if (!settled) {
-        frame = requestAnimationFrame(tick);
-      }
-    };
-
-    const requestTick = (): void => {
-      if (frame === 0) {
-        frame = requestAnimationFrame(tick);
-      }
-    };
-
-    const onPointerMove = (event: PointerEvent): void => {
-      mouseX = event.clientX - pillLeft;
-      requestTick();
-    };
-
-    const onPointerLeave = (): void => {
-      mouseX = null;
-      requestTick();
-    };
-
-    pill.addEventListener('pointermove', onPointerMove, { passive: true });
-    pill.addEventListener('pointerleave', onPointerLeave);
-    return () => {
-      resizeObserver.disconnect();
-      window.removeEventListener('resize', measure);
-      pill.removeEventListener('pointermove', onPointerMove);
-      pill.removeEventListener('pointerleave', onPointerLeave);
-      if (frame !== 0) {
-        cancelAnimationFrame(frame);
-      }
-    };
-  };
-
   const scrollspy: Attachment<HTMLElement> = () => {
     spy.start();
     return () => {
@@ -174,11 +90,7 @@
   {@attach scrollspy}
   {@attach scrollBehavior}
 >
-  <div
-    class="relative flex items-center gap-0.5 rounded-full glass-nav p-1.5"
-    {@attach magnify}
-    {@attach indicator}
-  >
+  <div class="relative flex items-center gap-0.5 rounded-full glass-nav p-1.5" {@attach indicator}>
     <span
       data-dock-indicator
       aria-hidden="true"
@@ -196,9 +108,7 @@
       <a
         href={resolve(`/${item.href}`)}
         data-dock-item={item.href.slice(1)}
-        data-dock-scale
         aria-current={spy.activeId === item.href.slice(1) ? 'true' : undefined}
-        style="scale: var(--dock-scale, 1)"
         class="flex h-8 items-center rounded-full px-3 text-sm font-medium whitespace-nowrap transition-colors duration-[var(--dur-micro)] ease-[var(--ease-signature)] focus-visible:ring-2 focus-visible:ring-foreground/50 focus-visible:outline-none"
         class:text-foreground={spy.activeId === item.href.slice(1)}
         class:text-muted-foreground={spy.activeId !== item.href.slice(1)}

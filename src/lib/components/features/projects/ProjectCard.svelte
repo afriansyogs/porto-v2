@@ -22,7 +22,7 @@
   <DitherMedia
     src={item.image}
     alt={item.title}
-    label={`${item.slug}.png`}
+    label={`${item.slug}`}
     class="border-b border-border"
   />
 
@@ -38,7 +38,7 @@
       {item.description}
     </p>
 
-    <ul class="mt-4 flex flex-wrap gap-1.5" aria-label={`${item.title} tech stack`}>
+    <ul class="mt-4 mb-2 flex flex-wrap gap-1.5" aria-label={`${item.title} tech stack`}>
       {#each item.tags as tag (tag)}
         <li
           class="rounded bg-foreground/[0.05] px-2 py-0.5 font-mono text-[0.6875rem] text-muted-foreground"

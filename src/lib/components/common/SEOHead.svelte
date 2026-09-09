@@ -8,10 +8,10 @@
   import { faq } from '$lib/data/faq';
   import { SITE_URL } from '$lib/utils/site';
 
-  const title = `${profile.fullName} (${profile.name}) | ${profile.role} & ${profile.focus}`;
-  const description = `${profile.fullName} (${profile.name}) is a Fullstack Developer from Indonesia building fast, reliable web platforms and AI/ML applications (RAG, LLM). Explore portfolio, experience, and contact info.`;
+  const title = `${profile.fullName} | ${profile.role} & ${profile.focus}`;
+  const description = `${profile.fullName} is a Fullstack Developer from Indonesia building fast, reliable web platforms and AI/ML applications (RAG, LLM). Explore portfolio, experience, and contact info.`;
   const ogImage = `${SITE_URL}/img/og-image.png`;
-  const imageAlt = `${profile.fullName} (${profile.name}) — ${profile.role} and ${profile.focus}`;
+  const imageAlt = `${profile.fullName} — ${profile.role} and ${profile.focus}`;
   const keywords = [
     profile.fullName,
     profile.name,

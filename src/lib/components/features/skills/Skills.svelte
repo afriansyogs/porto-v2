@@ -42,7 +42,7 @@
 
 {#snippet tile(item: SkillItem)}
   <div
-    class="group my-1 flex h-18 shrink-0 items-center gap-3 rounded-[10px] border border-border bg-card/85 px-4 transition-[transform,border-color] duration-[var(--dur-micro)] ease-[var(--ease-signature)] hover:-translate-y-0.5 hover:border-foreground/25"
+    class="group my-1 flex h-12 shrink-0 items-center gap-2.5 rounded-[10px] border border-border bg-card/85 px-3 transition-[transform,border-color] duration-[var(--dur-micro)] ease-[var(--ease-signature)] hover:-translate-y-0.5 hover:border-foreground/25 md:h-18 md:gap-3 md:px-4"
   >
     <img
       src={asset(item.icon)}
@@ -51,7 +51,7 @@
       height="28"
       loading="lazy"
       decoding="async"
-      class="size-7 shrink-0 transition-transform duration-[var(--dur-micro)] ease-[var(--ease-signature)] group-hover:scale-[1.08]"
+      class="size-6 shrink-0 transition-transform duration-[var(--dur-micro)] ease-[var(--ease-signature)] group-hover:scale-[1.08] md:size-7"
     />
     <span class="font-mono text-xs whitespace-nowrap">{item.name}</span>
   </div>

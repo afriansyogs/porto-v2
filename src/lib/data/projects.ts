@@ -61,7 +61,7 @@ export const projects = [
     image: '/ORILOOKSTORE.webp',
     description:
       'Developed a responsive shoe e-commerce platform with an admin dashboard, shipping cost calculation, voucher management, and integrated payment gateway processing to streamline the online shopping experience.',
-    tags: ['Javascript', 'PHP', 'Tailwind CSS', 'Laravel Filament', 'MySQL'],
+    tags: ['Javascript', 'PHP', 'Tailwind CSS', 'Laravel Filament', 'MySQL', 'Midtrans'],
     links: [{ kind: 'repo', href: 'https://github.com/afriansyogs/orilook_store' }],
     year: 2025
   }
