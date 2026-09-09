@@ -3,4 +3,4 @@ User-agent: *
 Disallow:
 
 # Static file — keep the domain in sync with PUBLIC_SITE_URL (.env).
-Sitemap: https://afriansyoga.example.com/sitemap.xml
+Sitemap: https://afriansyoga.vercel.app/sitemap.xml
