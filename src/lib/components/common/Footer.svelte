@@ -68,7 +68,7 @@
     >
       <p class="text-center font-mono text-xs text-muted-foreground md:text-left">
         © <span {@attach setYear}>{year}</span>
-        {profile.name} · Built with SvelteKit &amp; Tailwind CSS
+        {profile.name}
       </p>
       <button
         type="button"
