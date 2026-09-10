@@ -14,7 +14,7 @@
   type="button"
   onclick={toggleMode}
   aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-  class="flex size-8 shrink-0 items-center justify-center rounded-full text-muted-foreground transition-colors duration-[var(--dur-micro)] ease-[var(--ease-signature)] hover:bg-foreground/[0.06] hover:text-foreground focus-visible:ring-2 focus-visible:ring-foreground/50 focus-visible:outline-none"
+  class="flex size-8 shrink-0 items-center justify-center rounded-full text-muted-foreground transition-colors duration-[var(--dur-micro)] ease-[var(--ease-signature)] hover:bg-foreground/[0.06] hover:text-foreground focus-visible:ring-2 focus-visible:ring-foreground/50 focus-visible:outline-none cursor-pointer"
 >
   <span class="relative flex size-4 items-center justify-center">
     <Sun

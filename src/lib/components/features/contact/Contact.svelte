@@ -213,7 +213,7 @@
         <ShineButton
           type="submit"
           size="lg"
-          class="mt-1 w-full"
+          class="mt-1 w-full cursor-pointer"
           disabled={formState.status === 'submitting'}
         >
           {#if formState.status === 'submitting'}
