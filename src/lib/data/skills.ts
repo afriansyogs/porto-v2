@@ -1,14 +1,14 @@
 import type { SkillItem } from '$lib/types';
 
 export const skills = [
-  { name: 'HTML5', icon: '/img/tech-icon/HTML5.svg' },
-  { name: 'CSS3', icon: '/img/tech-icon/CSS3.svg' },
   { name: 'JavaScript', icon: '/img/tech-icon/JavaScript.svg' },
   { name: 'TypeScript', icon: '/img/tech-icon/TypeScript.svg' },
   { name: 'PHP', icon: '/img/tech-icon/PHP.svg' },
   { name: 'Python', icon: '/img/tech-icon/Python.svg' },
   { name: 'Bootstrap', icon: '/img/tech-icon/Bootstrap.svg' },
   { name: 'Tailwind CSS', icon: '/img/tech-icon/Tailwind CSS.svg' },
+  { name: 'HTML5', icon: '/img/tech-icon/HTML5.svg' },
+  { name: 'CSS3', icon: '/img/tech-icon/CSS3.svg' },
   { name: 'Svelte', icon: '/img/tech-icon/Svelte.svg' },
   { name: 'React', icon: '/img/tech-icon/React.svg' },
   { name: 'Next.js', icon: '/img/tech-icon/Next.js.svg' },

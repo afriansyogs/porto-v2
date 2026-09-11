@@ -26,7 +26,7 @@ export const experience = [
       'Developed a responsive frontend using Vue.js and handled backend services using the Phalcon PHP framework to ensure reliable performance',
       'Created and executed test cases, performed functional testing, and identified and documented bugs'
     ],
-    tags: ['Javascript', 'Vue.js', 'Phalcon PHP', 'MySQL', 'QA Testing']
+    tags: ['Vue.js', 'Phalcon PHP', 'MySQL', 'QA Testing']
   },
   {
     role: 'Web Developer',
