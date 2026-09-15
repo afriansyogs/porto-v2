@@ -19,12 +19,30 @@
 </script>
 
 <SpotlightCard class={item.featured === true ? 'xl:col-span-2' : undefined}>
-  <DitherMedia
-    src={item.image}
-    alt={item.title}
-    label={`${item.slug}`}
-    class="border-b border-border"
-  />
+  <div class="relative">
+    <DitherMedia
+      src={item.image}
+      alt={item.title}
+      label={`${item.slug}`}
+      class="border-b border-border"
+    />
+    {#if item.onProgress}
+      <div class="absolute top-3 right-3 z-10">
+        <span
+          class="inline-flex items-center gap-1.5 rounded-full border border-border/80 bg-background/80 px-2.5 py-1 font-mono text-[0.6875rem] font-medium text-foreground shadow-xs backdrop-blur-md select-none"
+        >
+          <span class="relative flex size-1.5" aria-hidden="true">
+            <span
+              class="pulse-ring absolute inline-flex size-full rounded-full bg-amber-500/80 dark:bg-amber-400"
+            ></span>
+            <span class="relative inline-flex size-1.5 rounded-full bg-amber-500 dark:bg-amber-400"
+            ></span>
+          </span>
+          Active Development
+        </span>
+      </div>
+    {/if}
+  </div>
 
   <div class="flex flex-1 flex-col p-5">
     <div class="flex items-baseline justify-between gap-3">

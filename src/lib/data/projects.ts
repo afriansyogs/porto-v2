@@ -22,7 +22,8 @@ export const projects = [
     ],
     links: [{ kind: 'repo', href: 'https://github.com/afriansyogs/smart-parkingV2' }],
     year: 2026,
-    featured: true
+    featured: true,
+    onProgress: false
   },
   {
     slug: 'FloraVerse',
@@ -35,11 +36,13 @@ export const projects = [
       { kind: 'repo', href: 'https://github.com/afriansyogs/FloraVerse' },
       { kind: 'demo', href: 'https://flora-verse.vercel.app/' }
     ],
-    year: 2026
+    year: 2026,
+    onProgress: false
   },
   {
     slug: 'Gate Access System',
     title: 'Gate Access System',
+    image: '/rfid_lpr_system_design.webp',
     description:
       'Developed an intelligent gate access system that combines RFID authentication and license plate recognition to automate vehicle access control, with centralized communication and real-time gate monitoring.',
     tags: [
@@ -53,7 +56,8 @@ export const projects = [
       'Docker'
     ],
     links: [{ kind: 'repo', href: 'https://github.com/afriansyogs/rfid-lpr-gate-system' }],
-    year: 2026
+    year: 2026,
+    onProgress: false
   },
   {
     slug: 'ORILOOKSTORE',
@@ -63,6 +67,18 @@ export const projects = [
       'Developed a responsive shoe e-commerce platform with an admin dashboard, shipping cost calculation, voucher management, and integrated payment gateway processing to streamline the online shopping experience.',
     tags: ['Javascript', 'PHP', 'Tailwind CSS', 'Laravel Filament', 'MySQL', 'Midtrans'],
     links: [{ kind: 'repo', href: 'https://github.com/afriansyogs/orilook_store' }],
-    year: 2025
+    year: 2025,
+    onProgress: false
+  },
+  {
+    slug: 'ProjectIQ',
+    title: 'ProjectIQ',
+    image: '/projectIQ_system_design.webp',
+    description:
+      'Built ProjectIQ, an AI-powered project management platform that combines role-based RAG for contextual project knowledge with verifiable AI performance analytics, enabling teams to access project documentation and track progress through evidence-based insights.',
+    tags: ['Next.js', 'TypeScript', 'FastAPI', 'Python', 'RAG', 'Qdrant', 'PostgreSQL', 'Redis'],
+    links: [{ kind: 'repo', href: 'https://github.com/afriansyogs/ProjectIQ' }],
+    year: 2026,
+    onProgress: true
   }
 ] as const satisfies readonly ProjectItem[];

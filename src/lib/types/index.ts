@@ -77,6 +77,7 @@ export interface ProjectItem {
   year: number;
   featured?: boolean;
   image?: string;
+  onProgress?: boolean;
 }
 
 export interface ExperienceItem {
