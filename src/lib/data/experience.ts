@@ -39,6 +39,6 @@ export const experience = [
       'Led the project by coordinating the team, defining goals, and overseeing project execution',
       'Designed an intuitive user interface and seamless user experience using Figma'
     ],
-    tags: ['JavaScript', 'PHP', 'Bootstrap', 'Figma']
+    tags: ['JavaScript', 'PHP', 'Bootstrap', 'Figma', 'WordPress']
   }
 ] as const satisfies readonly ExperienceItem[];
